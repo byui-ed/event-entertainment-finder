@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
 
 function SearchBar({ onSearch }) {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [query, setQuery] = useState('');
 
   const handleInputChange = (event) => {
-    setSearchTerm(event.target.value);
-    onSearch(event.target.value); // Call the parent component's function
+    setQuery(event.target.value);
+  };
+
+  const handleSearch = () => {
+    onSearch(query);
   };
 
   return (
-    <input
-      type="text"
-      placeholder="Search events..."
-      value={searchTerm}
-      onChange={handleInputChange}
-    />
+    <div className="search-bar">
+      <input
+        type="text"
+        placeholder="Search events..."
+        value={query}
+        onChange={handleInputChange}
+      />
+      <button onClick={handleSearch}>Search</button>
+    </div>
   );
 }
 

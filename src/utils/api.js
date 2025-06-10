@@ -1,7 +1,7 @@
 export const getEvents = async () => {
+  // Replace with your actual API call.  For example, using fetch:
   try {
-    // Replace with your actual API call
-    const response = await fetch('/data/events.json'); // Example fetching from local JSON
+    const response = await fetch('/data/events.json'); // Replace with your data endpoint
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -9,6 +9,6 @@ export const getEvents = async () => {
     return data;
   } catch (error) {
     console.error("Error fetching data:", error);
-    throw error; // Re-throw the error to be handled in App.js
+    throw error; // Re-throw the error to be caught by the calling function
   }
 };
